@@ -6,8 +6,8 @@ export default (item) => {
     capacity, 
     averageSpeed, 
   } = item;
-  let countOrGas = null; 
-  let name = null;
+  let countOrGas, name;
+  
   if(item.countOfTeam) {
     countOrGas = item.countOfTeam;
     name = item.name;

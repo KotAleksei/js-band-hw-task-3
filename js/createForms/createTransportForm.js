@@ -1,14 +1,16 @@
 import { 
   forms,
-} from '../helpers/projectConstants.js';
-import transportForm from '../templates/transportForm.js';
-import Ship from '../constructors/Ship.js';
-import Truck from '../constructors/Truck.js'
-import AddToLocaleStorage from '../helpers/AddToLocaleStorage.js';
-import Render from '../helpers/Render.js';
+  TRANSPORT_LIST,
+  transportList
+ } from '../constants/common.constants.js';
+import TransportForm from '../templates/transportForm.js';
+import Ship from '../models/Ship.js';
+import Truck from '../models/Truck.js'
+import LocaleStorage from '../services/localestorage.js';
+import Render from '../render.js';
 
 
-class CreateFormTransport {
+export default class CreateFormTransport {
   constructor(name) {
     this.name = name;
     this.inputEls = [
@@ -21,7 +23,7 @@ class CreateFormTransport {
   }
 
   createForm(name) {
-      forms.insertAdjacentHTML('afterbegin', transportForm(name));
+      forms.insertAdjacentHTML('afterbegin', TransportForm(name));
   }
   takeElementsFromForm() {
     this.createEl = document.querySelector(`.create.transport.${this.name}`);
@@ -55,27 +57,12 @@ class CreateFormTransport {
     if(this.name === "Truck"){
       newItem = new Truck(...this.inputValues.map(value => this[value]));
     }
-
-    const addToLocaleStore = new AddToLocaleStorage(newItem);
-    addToLocaleStore.addTransport();
-
-    const renderTransport = new Render();
-    renderTransport.renderItem(newItem,'Transport');
-
+    LocaleStorage.add(TRANSPORT_LIST, transportList, newItem);
+    Render.renderItem(newItem, 'Transport');
     this.resetData();
   }
 
   resetData() {
-    this.model.value = '';
-    this.nameOfTransport.value = '';
-    this.producedYear.value = '';
-    this.capacity.value = '';
-    this.averageSpeed.value = '';
-    this.countOrGas.value = '';
+    this.inputEls.forEach(inputEl => this[inputEl].value = '')
   }
 }
-
-
-
-const addShipForm =  new CreateFormTransport('Ship');
-const addTruckFrom = new CreateFormTransport('Truck');

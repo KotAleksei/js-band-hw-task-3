@@ -5,10 +5,10 @@ const costListEl = document.querySelector('.costList');
 
 const TRANSPORT_LIST = 'transportList';
 const COST_LIST = 'costList';
-const hasTransportListInLocStore = localStorage.getItem(TRANSPORT_LIST)
-const hasCostListInLocStore = localStorage.getItem(COST_LIST);
-const transportList = hasTransportListInLocStore ? JSON.parse(hasTransportListInLocStore) : [];
-const costList = hasCostListInLocStore ? JSON.parse(hasCostListInLocStore) : []; 
+const hasTransportListInLS = localStorage.getItem(TRANSPORT_LIST);
+const hasCostListInLS = localStorage.getItem(COST_LIST);
+const transportList = hasTransportListInLS ? JSON.parse(hasTransportListInLS) : [];
+const costList = hasCostListInLS ? JSON.parse(hasCostListInLS) : []; 
 
 export {
   forms,

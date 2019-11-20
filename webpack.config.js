@@ -16,12 +16,15 @@ const path = require('path');
           loader: "babel-loader"
         }
       },
-
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './index.html')
+      template: path.resolve(__dirname, './public/index.html')
     })
   ],
  }

@@ -1,4 +1,3 @@
-import './createForms/createCostForm.js';
-import './createForms/createTransportForm.js';
-import './helpers/Render.js';
+import '../style/style.css';
+import './render.js';
 

@@ -1,4 +1,4 @@
-import { costList, transportList } from './projectConstants.js';
+import { costList, transportList } from '../constants/common.constants.js';
 
 function makeID () {
   let result = '';

@@ -1,12 +1,14 @@
 import { 
   forms,
-} from '../helpers/projectConstants.js';
-import costForm from '../templates/costForm.js';
-import CostOfDelivery from '../constructors/CostOfDelivery.js';
-import AddToLocaleStorage from '../helpers/AddToLocaleStorage.js';
-import Render from '../helpers/Render.js';
+  COST_LIST,
+  costList,
+} from '../constants/common.constants.js';
+import CostForm from '../templates/costForm.js';
+import CostOfDelivery from '../models/CostOfDelivery.js';
+import LocaleStorage from '../services/localestorage.js';
+import Render from '../render.js';
 
-class CreateCostForm {
+export default class CreateCostForm {
   constructor(name) {
     this.name = name
     this.createForm();
@@ -15,7 +17,7 @@ class CreateCostForm {
 
   }
   createForm() {
-    forms.insertAdjacentHTML('afterbegin', costForm);
+    forms.insertAdjacentHTML('afterbegin', CostForm);
   }
   takeElementsFromForm() {
     this.createEl = document.querySelector('.create.costOfDelivery');
@@ -51,13 +53,8 @@ class CreateCostForm {
       this.costBykgValue,
       this.costBykmValue
     );
-    
-    const addToLocaleStore = new AddToLocaleStorage(newItem);
-    addToLocaleStore.addCost();
-
-    const renderCost = new Render();
-    renderCost.renderItem(newItem);
-
+    LocaleStorage.add(COST_LIST, costList, newItem);
+    Render.renderItem(newItem);
     this.resetData();
   }
   resetData() {
@@ -67,4 +64,3 @@ class CreateCostForm {
   }
 }
 
-const createCostForm = new CreateCostForm('Cost');
