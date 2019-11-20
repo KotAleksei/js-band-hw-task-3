@@ -8,9 +8,8 @@ export default class Truck extends Transport {
     this.licensePlate = licensePlate;
     this.typeOfGas = typeOfGas;
   }
-  get showAverageSpeed() {
+  showAverageSpeed() {
     return this.averageSpeed + 'km';
   }
 }
 
-// use => new Truck(model, licensePlate, typeOfGas, Produced year, Capacity, Avarage Speed)

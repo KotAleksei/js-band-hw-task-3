@@ -1,12 +1,11 @@
 import { 
   forms,
-  TRANSPORT_LIST,
-  transportList
+  TRANSPORT_LIST_STORAGE_KEY,
  } from '../constants/common.constants.js';
 import TransportForm from '../templates/transportForm.js';
 import Ship from '../models/Ship.js';
 import Truck from '../models/Truck.js'
-import LocaleStorage from '../services/localestorage.js';
+import LocalStorage from '../services/localstorage.js';
 import Render from '../render.js';
 
 
@@ -38,7 +37,7 @@ export default class CreateFormTransport {
   listenersForm() {
     this.inputEls.forEach((inputEl,index) => {
       this[inputEl].addEventListener('input', (e) => this.setListenerInput(e, this.inputValues[index]))
-    })
+    });
     this.createEl.addEventListener('submit', this.handleSubmit.bind(this));
     this.btnCancel.addEventListener('click', this.cancelAdd.bind(this));
   }
@@ -57,7 +56,7 @@ export default class CreateFormTransport {
     if(this.name === "Truck"){
       newItem = new Truck(...this.inputValues.map(value => this[value]));
     }
-    LocaleStorage.add(TRANSPORT_LIST, transportList, newItem);
+    LocalStorage.add(TRANSPORT_LIST_STORAGE_KEY, newItem);
     Render.renderItem(newItem, 'Transport');
     this.resetData();
   }

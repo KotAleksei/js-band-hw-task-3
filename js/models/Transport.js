@@ -7,7 +7,7 @@ export default class Transport {
     this.capacity = capacity;
     this.averageSpeed = averageSpeed;
   }
-  get showCapacityInPounds() {
+  showCapacityInPounds() {
     return this.capacity * 2.2046;
   }
 }

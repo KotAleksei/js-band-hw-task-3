@@ -1,11 +1,10 @@
 import { 
   forms,
-  COST_LIST,
-  costList,
+  COST_LIST_STORAGE_KEY,
 } from '../constants/common.constants.js';
 import CostForm from '../templates/costForm.js';
 import CostOfDelivery from '../models/CostOfDelivery.js';
-import LocaleStorage from '../services/localestorage.js';
+import LocalStorage from '../services/localstorage.js';
 import Render from '../render.js';
 
 export default class CreateCostForm {
@@ -53,7 +52,7 @@ export default class CreateCostForm {
       this.costBykgValue,
       this.costBykmValue
     );
-    LocaleStorage.add(COST_LIST, costList, newItem);
+    LocalStorage.add(COST_LIST_STORAGE_KEY, newItem);
     Render.renderItem(newItem);
     this.resetData();
   }
