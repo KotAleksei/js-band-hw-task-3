@@ -1,7 +1,7 @@
 export default class LocalStorage {
   static getItem(key) {
     let hasItemInLS = localStorage.getItem(key);
-    return  hasItemInLS ? JSON.parse(localStorage.getItem(key)) : [];
+    return  hasItemInLS ? JSON.parse(hasItemInLS) : [];
   }
   static add(key, value) {
     let listArr = this.getItem(key)
