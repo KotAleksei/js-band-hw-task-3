@@ -12,7 +12,7 @@ export default class CreateCostForm {
     this.store = new LocalStorage();
     this.createForm();
     this.takeElementsFromForm();
-    this.addListenersForm();
+    this.setListenersForm();
   }
   createForm() {
     forms.insertAdjacentHTML('afterbegin', CostForm);
@@ -24,7 +24,7 @@ export default class CreateCostForm {
     this.costBykm = document.querySelector('.costBykm');
     this.btnCancel = document.querySelector('.cancelAdd');
   }
-  addListenersForm() {
+  setListenersForm() {
     this.createEl.addEventListener('submit', this.handleSubmit.bind(this));
     this.modelOfTransport.addEventListener('click', this.setModelOfTransport.bind(this));
     this.costBykg.addEventListener('input', this.setCostBykg.bind(this));
