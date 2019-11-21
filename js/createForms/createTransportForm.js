@@ -12,6 +12,7 @@ export default class CreateFormTransport {
   constructor(name) {
     this.name = name;
     this.store = new LocalStorage();
+    this.render = new Render();
     this.inputEls = [
       'model', 'nameOfTransport', 'producedYear', 'capacity', 'averageSpeed', 'countOrGas'
     ];
@@ -58,7 +59,7 @@ export default class CreateFormTransport {
       ...this.inputValues.map(value => this[value]) // => this.modelValue, this.nameOfTransportValue, etc.
     );
     this.store.add(TRANSPORT_LIST_STORAGE_KEY, newItem);
-    Render.renderItem(newItem, 'Transport');
+    this.render.renderItem(newItem, 'Transport');
     this.resetData();
   }
 

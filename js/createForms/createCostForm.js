@@ -10,6 +10,7 @@ import Render from '../render.js';
 export default class CreateCostForm {
   constructor() {
     this.store = new LocalStorage();
+    this.render = new Render();
     this.createForm();
     this.takeElementsFromForm();
     this.setListenersForm();
@@ -53,7 +54,7 @@ export default class CreateCostForm {
     );
 
     this.store.add(COST_LIST_STORAGE_KEY, newItem);
-    Render.renderItem(newItem);
+    this.render.renderItem(newItem);
     this.resetData();
   }
   resetData() {
