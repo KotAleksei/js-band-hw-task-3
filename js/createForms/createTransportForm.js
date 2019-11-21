@@ -12,6 +12,7 @@ import Render from '../render.js';
 export default class CreateFormTransport {
   constructor(name) {
     this.name = name;
+    this.store = new LocalStorage();
     this.inputEls = [
       'model', 'nameOfTransport', 'producedYear', 'capacity', 'averageSpeed', 'countOrGas'
     ];
@@ -56,7 +57,7 @@ export default class CreateFormTransport {
     if(this.name === "Truck"){
       newItem = new Truck(...this.inputValues.map(value => this[value]));
     }
-    LocalStorage.add(TRANSPORT_LIST_STORAGE_KEY, newItem);
+    this.store.add(TRANSPORT_LIST_STORAGE_KEY, newItem);
     Render.renderItem(newItem, 'Transport');
     this.resetData();
   }

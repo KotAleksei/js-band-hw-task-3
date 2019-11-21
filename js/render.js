@@ -18,8 +18,12 @@ export default class Render {
     new CreateFormTransport('Truck');
   }
   static renderItems() {
-    let transportList = LocaleStorage.getItem(TRANSPORT_LIST_STORAGE_KEY);
-    let costList = LocaleStorage.getItem(COST_LIST_STORAGE_KEY);
+    const store = new LocaleStorage([
+      TRANSPORT_LIST_STORAGE_KEY,
+      COST_LIST_STORAGE_KEY
+    ]);
+    let transportList = store.getItem(TRANSPORT_LIST_STORAGE_KEY);
+    let costList = store.getItem(COST_LIST_STORAGE_KEY);
 
     transportList.forEach(el => this.renderItem(el, name = "Transport"));
     costList.forEach(el => this.renderItem(el, name = "Cost"));
@@ -31,5 +35,6 @@ export default class Render {
   }
 }
 
-Render.createForms();
 Render.renderItems();
+Render.createForms();
+

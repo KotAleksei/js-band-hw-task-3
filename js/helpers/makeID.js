@@ -18,10 +18,11 @@ function makeID () {
       result += '-';
     }
   }
-  // after it - ID is unique
-  let transportList = LocaleStorage.getItem(TRANSPORT_LIST_STORAGE_KEY);
-  let costList = LocaleStorage.getItem(COST_LIST_STORAGE_KEY);
+  const store = new LocaleStorage();
+  let transportList = store.getItem(TRANSPORT_LIST_STORAGE_KEY);
+  let costList = store.getItem(COST_LIST_STORAGE_KEY);
 
+  // after it - ID is unique
   costList.forEach(el => el.id === result ? makeID() : null);
   transportList.forEach(el => el.id === result ? makeID() : null);
 

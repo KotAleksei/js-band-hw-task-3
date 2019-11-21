@@ -8,8 +8,8 @@ import LocalStorage from '../services/localstorage.js';
 import Render from '../render.js';
 
 export default class CreateCostForm {
-  constructor(name) {
-    this.name = name
+  constructor() {
+    this.store = new LocalStorage();
     this.createForm();
     this.takeElementsFromForm();
     this.addListenersForm();
@@ -51,8 +51,8 @@ export default class CreateCostForm {
       this.costBykgValue,
       this.costBykmValue
     );
-    
-    LocalStorage.add(COST_LIST_STORAGE_KEY, newItem);
+
+    this.store.add(COST_LIST_STORAGE_KEY, newItem);
     Render.renderItem(newItem);
     this.resetData();
   }
