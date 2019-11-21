@@ -1,7 +1,7 @@
 Ciklum University: JS Band Internship. Homework task 3
 
 This project have same functionality with https://kotaleksei.github.io/js-band-hw-task-1/ project, 
-with the exception of sortering (it wasn't a necessary condition)
+with the exception of sortering (it wasn't a necessary condition) and add patterns (Singleton, Method factory)
 
 ## To start the project should:
 1. npm i
