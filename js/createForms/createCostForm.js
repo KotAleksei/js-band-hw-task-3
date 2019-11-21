@@ -2,12 +2,12 @@ import {
   forms,
   COST_LIST_STORAGE_KEY,
 } from '../constants/common.constants.js';
-import CostForm from '../templates/costForm.js';
+import CostFormTemplate from '../templates/costForm.js';
 import CostOfDelivery from '../models/CostOfDelivery.js';
 import LocalStorage from '../services/localstorage.js';
 import Render from '../render.js';
 
-export default class CreateCostForm {
+export default class CostForm {
   constructor() {
     this.store = new LocalStorage();
     this.render = new Render();
@@ -16,7 +16,7 @@ export default class CreateCostForm {
     this.setListenersForm();
   }
   createForm() {
-    forms.insertAdjacentHTML('afterbegin', CostForm);
+    forms.insertAdjacentHTML('afterbegin', CostFormTemplate);
   }
   takeElementsFromForm() {
     this.createEl = document.querySelector('.create.costOfDelivery');

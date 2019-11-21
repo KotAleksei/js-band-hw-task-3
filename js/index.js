@@ -1,5 +1,4 @@
 import '../style/style.css';
-
 import {
   TRANSPORT_LIST_STORAGE_KEY,
   COST_LIST_STORAGE_KEY

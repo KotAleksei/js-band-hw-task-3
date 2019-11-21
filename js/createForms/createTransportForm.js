@@ -2,13 +2,13 @@ import {
   forms,
   TRANSPORT_LIST_STORAGE_KEY,
  } from '../constants/common.constants.js';
-import TransportForm from '../templates/transportForm.js';
+import TransportFormTemplate from '../templates/transportForm.js';
 import TransportFactory from '../models/TransportFactory';
 import LocalStorage from '../services/localstorage.js';
 import Render from '../render.js';
 
 
-export default class CreateFormTransport {
+export default class TransportForm {
   constructor(name) {
     this.name = name;
     this.store = new LocalStorage();
@@ -24,7 +24,7 @@ export default class CreateFormTransport {
   }
 
   createForm(name) {
-      forms.insertAdjacentHTML('afterbegin', TransportForm(name));
+      forms.insertAdjacentHTML('afterbegin', TransportFormTemplate(name));
   }
   takeElementsFromForm() {
     this.createEl = document.querySelector(`.create.transport.${this.name}`);

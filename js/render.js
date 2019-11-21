@@ -12,9 +12,8 @@ import CreateCostForm from './createForms/createCostForm';
 
 export default class Render {
   constructor(localStorage){
-    this.localStorage = localStorage;
     if(Render.instance ) return Render.instance;
-      
+    this.localStorage = localStorage;
     Render.instance = this;
     return this;
   }
