@@ -3,8 +3,7 @@ import {
   TRANSPORT_LIST_STORAGE_KEY,
  } from '../constants/common.constants.js';
 import TransportForm from '../templates/transportForm.js';
-import Ship from '../models/Ship.js';
-import Truck from '../models/Truck.js'
+import TransportFactory from '../models/TransportFactory';
 import LocalStorage from '../services/localstorage.js';
 import Render from '../render.js';
 
@@ -50,13 +49,10 @@ export default class CreateFormTransport {
   }
   handleSubmit(e){
     e.preventDefault();
-    let newItem = null;
-    if(this.name === "Ship") {
-      newItem = new Ship(...this.inputValues.map(value => this[value]))
-    } 
-    if(this.name === "Truck"){
-      newItem = new Truck(...this.inputValues.map(value => this[value]));
-    }
+    let newItem = new TransportFactory(
+      this.name,
+      ...this.inputValues.map(value => this[value])
+    );
     this.store.add(TRANSPORT_LIST_STORAGE_KEY, newItem);
     Render.renderItem(newItem, 'Transport');
     this.resetData();
