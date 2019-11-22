@@ -1,4 +1,4 @@
-import Transport from './Transport.js';
+import Transport from './transport';
 
 export default class Truck extends Transport {
   constructor(model, licensePlate, typeOfGas, ...arg) {

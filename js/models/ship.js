@@ -1,4 +1,4 @@
-import Transport from './Transport.js';
+import Transport from './transport';
 
 export default class Ship extends Transport {
   constructor(model, name, countOfTeam, ...arg) {

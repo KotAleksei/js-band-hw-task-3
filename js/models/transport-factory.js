@@ -1,5 +1,5 @@
-import Truck from "./Truck";
-import Ship from "./Ship";
+import Truck from "./truck";
+import Ship from "./ship";
 
 export default class TransportFactory {
   constructor(type, ...args) {

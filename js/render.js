@@ -3,11 +3,11 @@ import {
   costListEl,
   TRANSPORT_LIST_STORAGE_KEY,
   COST_LIST_STORAGE_KEY
-} from './constants/common.constants.js';
-import ItemOfCost from './templates/itemOfCost.js';
-import ItemOfTransport from './templates/itemOfTransport.js';
-import CreateFormTransport from './createForms/createTransportForm';
-import CreateCostForm from './createForms/createCostForm';
+} from './constants/common.constants';
+import ItemOfCost from './templates/cost-item';
+import ItemOfTransport from './templates/transport-item';
+import TransportForm from './createforms/transport';
+import CostForm from './createforms/cost';
 
 
 export default class Render {
@@ -18,9 +18,9 @@ export default class Render {
     return this;
   }
    createForms() {
-    new CreateCostForm('Cost');
-    new CreateFormTransport('Ship');
-    new CreateFormTransport('Truck');
+    new CostForm('Cost');
+    new TransportForm('Ship');
+    new TransportForm('Truck');
   }
    renderItems() {
     let transportList = this.localStorage.getItem(TRANSPORT_LIST_STORAGE_KEY);

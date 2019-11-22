@@ -1,11 +1,11 @@
 import { 
   forms,
   COST_LIST_STORAGE_KEY,
-} from '../constants/common.constants.js';
-import CostFormTemplate from '../templates/costForm.js';
-import CostOfDelivery from '../models/CostOfDelivery.js';
-import LocalStorage from '../services/localstorage.js';
-import Render from '../render.js';
+} from '../constants/common.constants';
+import CostFormTemplate from '../templates/cost-form';
+import CostOfDelivery from '../models/сostofdelivery';
+import LocalStorage from '../services/localstorage';
+import Render from '../render';
 
 export default class CostForm {
   constructor() {

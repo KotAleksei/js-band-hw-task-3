@@ -1,8 +1,8 @@
 export default class LocalStorage {
   constructor() {
     if(LocalStorage.instance ) return LocalStorage.instance;
-    this.prefix = `JS-Band-`;
 
+    this.prefix = `JS-Band-`;
     LocalStorage.instance = this;
     return this;
   }

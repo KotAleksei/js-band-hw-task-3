@@ -1,4 +1,4 @@
-import makeID from '../helpers/makeID.js';
+import makeID from '../helpers/makeid';
 
 export default class CostOfDelivery {
   constructor(type, costBykg, costBykm) {

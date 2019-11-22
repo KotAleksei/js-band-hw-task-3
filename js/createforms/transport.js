@@ -1,11 +1,11 @@
 import { 
   forms,
   TRANSPORT_LIST_STORAGE_KEY,
- } from '../constants/common.constants.js';
-import TransportFormTemplate from '../templates/transportForm.js';
-import TransportFactory from '../models/TransportFactory';
-import LocalStorage from '../services/localstorage.js';
-import Render from '../render.js';
+ } from '../constants/common.constants';
+import TransportFormTemplate from '../templates/transport-form';
+import TransportFactory from '../models/transport-factory';
+import LocalStorage from '../services/localstorage';
+import Render from '../render';
 
 
 export default class TransportForm {
